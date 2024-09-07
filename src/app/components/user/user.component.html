@@ -1,0 +1,43 @@
+<div>
+    @if(isEdit){
+        <h2>Update </h2>
+    }@else {
+        <h2>Create </h2>
+    }
+    
+    
+    <form [formGroup]="userForm" (ngSubmit)="save()">
+        <div class="w-full flex  flex-wrap"> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>           
+                <input type="text" matInput  formControlName="name">   
+            </mat-form-field>
+        </div>
+
+        <div class="w-full flex  flex-wrap"> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>           
+                <input type="text" matInput  formControlName="description">   
+            </mat-form-field>
+        </div>
+        <div class="w-full flex  flex-wrap"> 
+            <mat-form-field class="example-full-width">
+                <mat-label>Link</mat-label>           
+                <input type="text" matInput  formControlName="link">   
+            </mat-form-field>
+        </div>
+        <div class="w-full flex  flex-wrap"> 
+            <mat-checkbox formControlName="isActive">IsActive</mat-checkbox>
+        </div>
+        <div class="w-full flex  flex-wrap"> 
+            @if(isEdit){
+                <button mat-raised-button [disabled]="!userForm.valid" >Edit</button>
+            }@else {
+                <button mat-raised-button [disabled]="!userForm.valid">Save</button>
+            }
+           
+        </div>
+
+          </form>
+
+</div>
